@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - Scrollbar lykkehjul</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <head>
+      <script src="./modules/tsparticles.min.js"></script>
+      <script src="./modules/8f86dce40d.js"></script>
+      <script src="./modules/confetti.browser.min.js"></script>
+      <script src="https://d3js.org/d3-timer.v1.min.js"></script>
+    </head>
+    
+    <div id="tsparticles"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center mb-4"></div>
+        <div class="col-md-12 text-center">
+          <div class="wheel-spin-box">
+            <div id="spinwheel">
+              <div class="wheeldotsround">
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+                <div class="wheeldots"></div>
+              </div>
+            </div>
+            <div id="spin-arrow" class="wheel-spin-arrow">
+              <svg width="83" height="74" viewBox="0 0 83 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M32.9489 5.12466C33.8289 3.59888 35.0943 2.3319 36.618 1.45104C38.1417 0.570174 39.8701 0.106445 41.6294 0.106445C43.3888 0.106445 45.1171 0.570174 46.6409 1.45104C48.1646 2.3319 49.43 3.59888 50.31 5.12466L80.9178 58.1922C81.7993 59.7185 82.264 61.4504 82.265 63.2137C82.2659 64.9769 81.8032 66.7094 80.9234 68.2366C80.0435 69.7639 78.7776 71.0322 77.2529 71.9139C75.7282 72.7955 73.9986 73.2595 72.238 73.2591H11.0223C9.26269 73.259 7.53405 72.7951 6.01016 71.9139C4.48627 71.0327 3.22083 69.7653 2.34102 68.2391C1.46121 66.7128 0.998036 64.9815 0.998047 63.2192C0.998058 61.4569 1.46125 59.7256 2.34108 58.1994L32.9489 5.12466Z"
+                  fill="#2F911E"
+                />
+              </svg>
+              <div id="winMessage" style="display: none; margin-Top: 100px">
+                <h1>Placeholder message</h1>
+              </div>
+            </div>
+            <h1 id="currentItem" style="color: white;" ></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="./modules/jquery-3.4.1.min.js"></script>
+    <script src="./modules/popper.min.js"></script>
+    <script src="./modules/bootstrap.min.js"></script>
+    <script src="./modules/d3.v3.min.js"></script>
+    <script src="./modules/d3-ease.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
