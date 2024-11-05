@@ -17,32 +17,47 @@ var og = [
 
 var mixers = [
   { label: '1x Coca Cola', value: 1, xp: '2' },
-  { label: '1x Sprite', value: 1, xp: '4', },
+  { label: '1x Sparkling water', value: 1, xp: '4', },
   { label: '1x Tonic Water', value: 1, xp: '1', },
-  { label: '1x Ginger Ale', value: 1, xp: '4', },
-  { label: '1x Soda', value: 1, xp: '5' },
-  { label: '1x Lemonade', value: 1, xp: '3' },
-  { label: '1x Orange Juice', value: 1, xp: '9' },
-  { label: '1x Cranberry Juice', value: 1, xp: '10' },
-  { label: '1x Pineapple Juice', value: 1, xp: '11' },
-  { label: '1x Apple Juice', value: 1, xp: '10' },
-  { label: '1x Grapefruit Juice', value: 1, xp: '12' },
-  { label: '1x Tomato Juice', value: 1, xp: '13' },
+  { label: '1x Ginger Beer', value: 1, xp: '4', },
+  { label: '1x Pineapple Juice', value: 1, xp: '5' },
+  { label: '1x Orange Juice', value: 1, xp: '3' },
+  { label: '1x Red Soda', value: 1, xp: '9' },
+  { label: '1x Coca Cola', value: 1, xp: '10' },
+  { label: '1x Tonic Water', value: 1, xp: '10' },
+  { label: '1x Ginger Beer', value: 1, xp: '11' },
+  { label: '1x Pineapple Juice', value: 1, xp: '12' },
+  { label: '1x Orange Juice', value: 1, xp: '13' },
 ];
 
 var shots = [
-  { label: '1x Tequila', value: 1, xp: '2' },
+  { label: '2x Tequila', value: 1, xp: '2' },
   { label: '1x Jägermeister', value: 1, xp: '4', },
   { label: '1x Sambuca', value: 1, xp: '1', },
-  { label: '1x Absinthe', value: 1, xp: '4', },
-  { label: '1x Vodka', value: 1, xp: '5' },
+  { label: '1x Pure Apple', value: 1, xp: '5' },
+  { label: '1x Pure Liquorice', value: 1, xp: '5' },
+  { label: '1x Råstof Caramel', value: 1, xp: '5' },
+  { label: '1x Råstof Rhubarb', value: 1, xp: '5' },
   { label: '1x Rum', value: 1, xp: '3' },
   { label: '1x Gin', value: 1, xp: '9' },
-  { label: '1x Whiskey', value: 1, xp: '10' },
-  { label: '1x Bourbon', value: 1, xp: '11' },
-  { label: '1x Cognac', value: 1, xp: '10' },
-  { label: '1x Brandy', value: 1, xp: '12' },
-  { label: '1x Moonshine', value: 1, xp: '13' },
+  { label: '2x Fernet', value: 1, xp: '10' },
+  { label: '2x Mintuu', value: 1, xp: '12' },
+  { label: '1x Fireball', value: 1, xp: '13' },
+]
+
+var sirup = [
+  { label: '1x Mango', value: 1, xp: '2' },
+  { label: '1x Passionfruit', value: 1, xp: '2' },
+  { label: '1x Lime', value: 1, xp: '2' },
+  { label: '1x Sugar', value: 1, xp: '2' },
+  { label: '1x Grenadine', value: 1, xp: '2' },
+  { label: '2x Mango', value: 1, xp: '2' },
+  { label: '2x Passionfruit', value: 1, xp: '2' },
+  { label: '2x Lime', value: 1, xp: '2' },
+  { label: '2x Sugar', value: 1, xp: '2' },
+  { label: '2x Grenadine', value: 1, xp: '2' },
+  { label: '3x Mango', value: 1, xp: '2' },
+  { label: '3x Passionfruit', value: 1, xp: '2' },
 ]
 
 // Init data filled in the wheel
@@ -52,7 +67,8 @@ var data = og;
 var options = {
   "og": og,
   "mixers": mixers,
-  "shots": shots
+  "shots": shots,
+  "sirup": sirup
 };
 
 var menuItem = document.getElementById('wheelOptions');
