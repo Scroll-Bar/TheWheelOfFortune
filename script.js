@@ -1,16 +1,6 @@
 // -----wheel-spin-js------
 
-var padding = { top: 0, right: 0, bottom: 0, left: 0 },
-  w = 400 - padding.left - padding.right,
-  h = 400 - padding.top - padding.bottom,
-  r = Math.min(w, h) / 2,
-  rotation = 0,
-  oldrotation = 0,
-  picked = 100000,
-  oldpick = [],
-  color = d3.scale.category20();
-
-var data = [
+var og = [
   { label: '1x Carrot Juice'       , value: 1, xp: '2' },
   { label: '1x Cup of water'              , value: 1, xp: '4', },
   { label: '1x Vodka Redbull'      , value: 1, xp: '1', },
@@ -24,6 +14,105 @@ var data = [
   { label: '3x Jägerbombs'      , value: 1, xp: '12' },
   { label: '2x Corona' , value: 1, xp: '13' },
 ];
+
+var mixers = [
+  { label: '1x Coca Cola', value: 1, xp: '2' },
+  { label: '1x Sprite', value: 1, xp: '4', },
+  { label: '1x Tonic Water', value: 1, xp: '1', },
+  { label: '1x Ginger Ale', value: 1, xp: '4', },
+  { label: '1x Soda', value: 1, xp: '5' },
+  { label: '1x Lemonade', value: 1, xp: '3' },
+  { label: '1x Orange Juice', value: 1, xp: '9' },
+  { label: '1x Cranberry Juice', value: 1, xp: '10' },
+  { label: '1x Pineapple Juice', value: 1, xp: '11' },
+  { label: '1x Apple Juice', value: 1, xp: '10' },
+  { label: '1x Grapefruit Juice', value: 1, xp: '12' },
+  { label: '1x Tomato Juice', value: 1, xp: '13' },
+];
+
+var shots = [
+  { label: '1x Tequila', value: 1, xp: '2' },
+  { label: '1x Jägermeister', value: 1, xp: '4', },
+  { label: '1x Sambuca', value: 1, xp: '1', },
+  { label: '1x Absinthe', value: 1, xp: '4', },
+  { label: '1x Vodka', value: 1, xp: '5' },
+  { label: '1x Rum', value: 1, xp: '3' },
+  { label: '1x Gin', value: 1, xp: '9' },
+  { label: '1x Whiskey', value: 1, xp: '10' },
+  { label: '1x Bourbon', value: 1, xp: '11' },
+  { label: '1x Cognac', value: 1, xp: '10' },
+  { label: '1x Brandy', value: 1, xp: '12' },
+  { label: '1x Moonshine', value: 1, xp: '13' },
+]
+
+// Init data filled in the wheel
+var data = og;
+
+// Different options for the wheel
+var options = {
+  "og": og,
+  "mixers": mixers,
+  "shots": shots
+};
+
+var menuItem = document.getElementById('wheelOptions');
+
+// Fill menu with options
+for (var option in options) {
+  var opt = document.createElement('option');
+  opt.value = option;
+  opt.innerHTML = option;
+  menuItem.appendChild(opt);
+}
+
+// Update wheel based option chosen
+menuItem.addEventListener('change', updateWheel);
+function updateWheel(event) {
+  var option = event.target.value;
+  data = options[option];
+
+  vis.selectAll('.slice').remove();
+  var arcs = vis.selectAll('g.slice').data(pie).enter().append('g').attr('class', 'slice');
+
+  arcs.append('path').attr('fill', function (d, i) {
+    return color(i);
+  })
+  .attr('d', function (d) {
+    return arc(d);
+  });
+
+  arcs
+    .append('text')
+    .attr('transform', function (d) {
+      d.innerRadius = 0;
+      d.outerRadius = r;
+      d.angle = (d.startAngle + d.endAngle) / 2;
+      return 'rotate(' + (((d.angle * 180) / Math.PI - 90) + 3) + ')translate(' + (d.outerRadius - 20) + ')';
+    })
+    .attr('font-size', '16')
+    .attr('stroke', 'black')
+    .attr('font-align', 'center')
+    .attr('stroke-width', 0.6)
+    .attr('fill', function(d,i){
+      return (i % 2 == 1) ? "black" : "white";
+    })
+    .attr('text-anchor', 'end')
+    .text(function (d, i) {
+      return data[i].label;
+    });
+
+}
+
+var padding = { top: 0, right: 0, bottom: 0, left: 0 },
+  w = 400 - padding.left - padding.right,
+  h = 400 - padding.top - padding.bottom,
+  r = Math.min(w, h) / 2,
+  rotation = 0,
+  oldrotation = 0,
+  picked = 100000,
+  oldpick = [],
+  color = d3.scale.category20();
+
 var svg = d3
   .select('#spinwheel')
   .append('svg')
@@ -104,6 +193,10 @@ $('#spin').on('click', () => spin(5));
 $(document).on('keypress', function (e) {
   if (e.which == 13) {
     spin(2);
+  }
+  // listen on h key and hide and unhide
+  if (e.which == 104) {
+    menuItem.hidden = !menuItem.hidden;
   }
 });
 
