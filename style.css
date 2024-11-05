@@ -168,3 +168,13 @@ body {
 .winIndicator {
   fill: #fff;
 }
+
+#wheelOptions {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  margin: 0 auto;
+  z-index: 1000;
+}
