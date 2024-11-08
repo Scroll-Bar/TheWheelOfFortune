@@ -1,0 +1,10 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Parcel-bundler cache
+.cache/
+
+# Temp files
+tmp/
+temp/
